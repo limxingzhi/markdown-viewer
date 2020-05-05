@@ -17,12 +17,28 @@
 <body>
 
   <main role="main" class="container">
+
+    <h1 class="noprint">Markdown Viewer</h1>
+
     <div id="app" class="noprint">
+      <label for="input">Upload your markdown file:</label>
+      <br />
+      <input type="file" id="input">
+      <br />
+      <br />
+      <button type="button" id="print-btn" class="btn btn-primary" disabled onclick="window.print()">Print</button>
     </div>
+
     <div id="content">
-      <div class="alert alert-secondary"><strong>Content not loaded</strong><br />Have you checked the source?</div>
+      <div class="alert alert-secondary"><strong>Hint:</strong><br />The divider in markdown "---" will create a page break.</div>
     </div>
+
   </main>
+
+  <footer class="noprint">
+    <div class="container"><span>Markdown Viewer by <a href="https://xingzhi.dev">limxingzhi</a>.</span></div>
+  </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="./app.js"></script>
 </body>
