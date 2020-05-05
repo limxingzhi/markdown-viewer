@@ -1,0 +1,50 @@
+main {
+  margin: 2rem auto;
+}
+
+.fas {
+  font-size: 0.75rem;
+  vertical-align: text-top;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+@media print {
+  main {
+    margin: 1cm;
+  }
+  hr {
+    page-break-before: always;
+    opacity: 0;
+  }
+  ol, ul {
+    page-break-inside: avoid;
+  }
+  .noprint {
+    display: none;
+  }
+  .fas::before {
+    display: none;
+  }
+  /* unvisited link */
+  h1 a:link {
+    color: auto;
+  }
+  h2 a:link {
+    color: auto;
+  }
+  h3 a:link {
+    color: auto;
+  }
+  /* visited link */
+  h1 a:visited {
+    color: auto;
+  }
+  h2 a:visited {
+    color: auto;
+  }
+  h3 a:visited {
+    color: auto;
+  }
+}

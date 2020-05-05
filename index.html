@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Markdown Viewer</title>
+  <!-- Bootstrap core CSS -->
+  <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- dark theme -->
+  <!-- <link href="https://bootswatch.com/4/darkly/bootstrap.min.css" rel="stylesheet"> -->
+
+  <link href="./styles.css" rel="stylesheet">
+  <link rel='stylesheet' id='fontawesome-css' href='https://use.fontawesome.com/releases/v5.0.1/css/all.css'
+    type='text/css' media='all' />
+</head>
+
+<body>
+
+  <main role="main" class="container">
+    <div id="app" class="noprint">
+    </div>
+    <div id="content">
+      <div class="alert alert-secondary"><strong>Content not loaded</strong><br />Have you checked the source?</div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+
+</html>
