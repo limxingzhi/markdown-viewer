@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Markdown Viewer</title>
   <!-- Bootstrap core CSS -->
   <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -16,21 +17,25 @@
 
 <body>
 
+  <div id="app" class="jumbotron text-center noprint">
+
+    <h1>Markdown Viewer</h1>
+    <p>Upload a file, then you can view or print it.</p>
+    <br />
+    <input type="file" id="input">
+  </div>
+
   <main role="main" class="container">
 
-    <h1 class="noprint">Markdown Viewer</h1>
-
-    <div id="app" class="noprint">
-      <label for="input">Upload your markdown file:</label>
-      <br />
-      <input type="file" id="input">
-      <br />
-      <br />
-      <button type="button" id="print-btn" class="btn btn-primary" disabled onclick="window.print()">Print</button>
-    </div>
-
+    <button type="button" id="print-btn" class="noprint btn btn-primary btn-lg" disabled
+      onclick="window.print()">Print</button>
     <div id="content">
-      <div class="alert alert-secondary"><strong>Hint:</strong><br />The divider in markdown "---" will create a page break.</div>
+      <div class="alert alert-secondary"><strong>Hint:</strong>
+        <p>Heading h1, h2, h3 will be converted to anchor links when rendering.</p>
+        <p>Headings will turn black and remove link icons when printing.</p>
+        <p>The title of the tab will change the first h1 heading in the document.</p>
+        <p>The divider in markdown "---" will create a page break when printing.</p>
+      </div>
     </div>
 
   </main>
