@@ -13,6 +13,7 @@ const printButton = document.getElementById('print-btn');
 
     reader.onload = () => {
       try {
+        document.title = input.files[0].name;
         startReader(reader.result);
         printButton.disabled = false;
       } catch (exception) {
@@ -31,19 +32,21 @@ const startReader = (inputString) => {
 
   print(inputString);
 
-  const headingsH1 = contentDiv.getElementsByTagName('h1');
+  var headingsH1 = contentDiv.getElementsByTagName('h1');
+  headingsH1 = headingsH1 ? headingsH1 : [];
   Array.prototype.map.call(headingsH1, changeToHref);
 
-  const headingsH2 = contentDiv.getElementsByTagName('h2');
+  var headingsH2 = contentDiv.getElementsByTagName('h2');
+  headingsH2 = headingsH2 ? headingsH2 : [];
   Array.prototype.map.call(headingsH2, changeToHref);
 
-  const headingsH3 = contentDiv.getElementsByTagName('h3');
+  var headingsH3 = contentDiv.getElementsByTagName('h3');
+  headingsH3 = headingsH3 ? headingsH3 : [];
   Array.prototype.map.call(headingsH3, changeToHref);
 }
 
 const print = (stringInput) => {
-  contentDiv.innerHTML = marked(stringInput)
-  document.title = contentDiv.getElementsByTagName('h1')[0].innerText;
+  contentDiv.innerHTML = marked(stringInput);
 }
 
 const changeToHref = (htmlNode) => {
