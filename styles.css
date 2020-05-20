@@ -22,8 +22,30 @@ table {
   margin: 2em 0;
 }
 
+h1 a:link, h2 a:link, h3 a:link, h1 a:visited, h2 a:visited, h3 a:visited {
+  color: black;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
 #print-btn {
-  margin: 1em auto;
+  margin: 0.5rem auto;
+}
+
+#input {
+  margin: 0 auto;
+}
+
+.jumbotron {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.jumbotron-heading {
+  margin-bottom: 0;
 }
 
 .fas {

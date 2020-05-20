@@ -2,7 +2,6 @@
 
 const errorAlert = '<div class="alert alert-danger"><strong>Parse Error!</strong><br />Check console for error logs<br /><br /><strong>Note:</strong><br />This is using the fetch API to retrieve markdown files.<br />i.e. to say you have to host this web page.</div>'
 
-const input = document.getElementById("input");
 const printButton = document.getElementById('print-btn');
 
 (() => {
@@ -27,10 +26,11 @@ const printButton = document.getElementById('print-btn');
 const contentDiv = document.getElementById('content');
 
 const startReader = (inputString) => {
-
-  // Phantom file name https://davidwalsh.name/prevent-cache
-
   print(inputString);
+
+  var allLinks = contentDiv.getElementsByTagName('a');
+  allLinks = allLinks ? allLinks : [];
+  Array.prototype.map.call(allLinks, addTargetBlank);
 
   var headingsH1 = contentDiv.getElementsByTagName('h1');
   headingsH1 = headingsH1 ? headingsH1 : [];
@@ -43,13 +43,23 @@ const startReader = (inputString) => {
   var headingsH3 = contentDiv.getElementsByTagName('h3');
   headingsH3 = headingsH3 ? headingsH3 : [];
   Array.prototype.map.call(headingsH3, changeToHref);
+
+  document.title = (document.querySelector('h1') !== null) ? document.querySelector('h1').innerText : 'LIMXINGZHI - Markdown Viewer';
+
+  printButton.disabled = false;
 }
 
 const print = (stringInput) => {
-  contentDiv.innerHTML = marked(stringInput);
+  stringInput = marked(stringInput);
+  contentDiv.innerHTML = stringInput;
+  return stringInput;
 }
 
 const changeToHref = (htmlNode) => {
   const innerHTML = htmlNode.innerHTML;
-  htmlNode.innerHTML = '<a href="#' + htmlNode.id + '"><i class="fas fa-link noprint"></i>' + innerHTML + '</a>';
+  htmlNode.innerHTML = '<a href="#' + htmlNode.id + '">' + innerHTML + '<i class="fas fa-link noprint"></i></a>';
+}
+
+const addTargetBlank = (htmlNode) => {
+  htmlNode.target="_blank";
 }
