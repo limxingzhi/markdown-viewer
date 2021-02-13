@@ -26,6 +26,22 @@ h1 a:link, h2 a:link, h3 a:link, h1 a:visited, h2 a:visited, h3 a:visited {
   color: black;
 }
 
+blockquote {
+  display: inline-block;
+  padding: 1em;
+  background-color: #efefef;
+  font-style: italic;
+  font-weight: bolder;
+}
+
+blockquote::before {
+  position: absolute;
+  content: open-quote;
+  font-size: 3em;
+  margin-left: -0.6em;
+  margin-top: -0.4em;
+}
+
 a:active {
   text-decoration: underline;
 }
@@ -60,12 +76,16 @@ a:active {
   main {
     margin: 1cm;
   }
-  hr {
+  hr.break {
     page-break-before: always;
     opacity: 0;
   }
   ol, ul {
     page-break-inside: avoid;
+  }
+  blockquote {
+    background-color: none;
+    border: 0px;
   }
   .noprint {
     display: none;
