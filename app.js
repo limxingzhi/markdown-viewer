@@ -50,7 +50,7 @@ const startReader = (inputString) => {
 }
 
 const print = (stringInput) => {
-  stringInput = marked(stringInput);
+  stringInput = marked.parse(stringInput);
   contentDiv.innerHTML = stringInput;
   return stringInput;
 }
